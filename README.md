@@ -52,7 +52,7 @@
 **🌍 Пример ответа сервера (JSON):**
 ```json
 {
-  "dayName":"Peak day 🏰",
+  "dayname":"Peak day 🏰",
   "date":"2026-07-28",
   "offsetreceived":2,
   "debuginfo":"OK"
