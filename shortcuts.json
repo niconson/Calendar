@@ -6,12 +6,12 @@
       "shortcuts": [
         {
           "bodyContent": "",
-          "codeOnSuccess": "const data \u003d JSON.parse(response.body);\nconst currentDay \u003d data.dayname || \"Ошибка\";\n\n// Записываем чистый день недели в нашу переменную day\nsetVariable(/*[variable]*/\"5860d85a-fcc9-426f-9848-33024db5f506\"/*[/variable]*/, currentDay);\n\n\n//const data \u003d JSON.parse(response.body);\n//const day \u003d data.dayname || \"Ключ не найден\";\n//showToast(day);\n\n// Принудительно отменяем стандартный вывод приложения, чтобы скрыть JSON\nabort();\n",
+          "codeOnSuccess": "\nif (response.body \u0026\u0026 response.body.trim()) {\n    try {\n        const data \u003d JSON.parse(response.body);\n        const currentDay \u003d data.dayname || \"Error key\";\n        setVariable(/*[variable]*/\"5860d85a-fcc9-426f-9848-33024db5f506\"/*[/variable]*/, currentDay);\n    } catch (e) {\n        setVariable(/*[variable]*/\"5860d85a-fcc9-426f-9848-33024db5f506\"/*[/variable]*/, \"Error of JSON\");\n    }\n} else {\n    setVariable(/*[variable]*/\"5860d85a-fcc9-426f-9848-33024db5f506\"/*[/variable]*/, \"Empty\");\n}\n\n// watch 🐶 dog\n//enqueueShortcut(/*[shortcut]*/\"3d0b6aab-0cbe-4df6-ae9f-e80e832ba6e2\"/*[/shortcut]*/, 14400000);\n",
           "description": "9-дневный цикл, 12-летний цикл",
           "iconName": "flat_color_brightness",
           "id": "3d0b6aab-0cbe-4df6-ae9f-e80e832ba6e2",
           "method": "GET",
-          "name": "Календарь Niconson ",
+          "name": "Calendar Niconson",
           "repetitionInterval": 180,
           "responseHandling": {
             "actions": [
@@ -25,19 +25,28 @@
             "successOutput": "none",
             "uiType": "toast"
           },
-          "url": "https://calendar-api-niconson.vercel.app/api/today?offset\u003d5"
+          "runInForegroundService": true,
+          "url": "https://calendar-api-niconson.vercel.app/api/today?offset\u003d5",
+          "waitForInternet": true
+        },
+        {
+          "codeOnPrepare": "openURL(\"https://niconson.com/calendar_table\");\n\nenqueueShortcut(/*[shortcut]*/\"3d0b6aab-0cbe-4df6-ae9f-e80e832ba6e2\"/*[/shortcut]*/);",
+          "executionType": "scripting",
+          "iconName": "flat_color_plugin",
+          "id": "9604c55c-bf5e-4d01-8a7d-512773786f4f",
+          "name": "Calendar click"
         }
       ]
     }
   ],
   "compatibilityVersion": 90,
-  "createdAt": "2026-07-28T14:42:42.664003Z",
+  "createdAt": "2026-08-09T04:32:47.464328Z",
   "originDeviceId": "VHR60Y35X5",
   "variables": [
     {
       "id": "5860d85a-fcc9-426f-9848-33024db5f506",
       "key": "day",
-      "value": "Peak day 🏰️"
+      "value": "Shah 👑️️"
     }
   ],
   "version": 91
